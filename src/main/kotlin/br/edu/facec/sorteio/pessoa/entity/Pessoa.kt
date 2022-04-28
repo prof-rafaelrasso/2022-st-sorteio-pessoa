@@ -1,4 +1,4 @@
-package br.edu.facec.sorteio.domain.pessoa.entity
+package br.edu.facec.sorteio.pessoa.entity
 
 import java.time.LocalDate
 import java.util.UUID
@@ -13,11 +13,11 @@ class Pessoa private constructor(
     private var nascimento: LocalDate? = null
     private var endereco: String? = null
 
-    fun isIdEq(id: UUID): Boolean {
+    fun hasId(id: UUID): Boolean {
         return this.id == id
     }
 
-    fun hasNascimentoMenorQue(data: LocalDate): Boolean {
+    fun hasNascimentoLessThan(data: LocalDate): Boolean {
         return nascimento != null && nascimento!!.isBefore(data)
     }
 

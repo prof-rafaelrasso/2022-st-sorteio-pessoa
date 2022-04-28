@@ -1,7 +1,7 @@
-package br.edu.facec.sorteio.domain.pessoa.service
+package br.edu.facec.sorteio.pessoa.service
 
-import br.edu.facec.sorteio.domain.pessoa.entity.Pessoa
-import br.edu.facec.sorteio.domain.pessoa.repository.PessoaRepository
+import br.edu.facec.sorteio.pessoa.entity.Pessoa
+import br.edu.facec.sorteio.pessoa.repository.PessoaRepository
 import java.time.LocalDate
 import java.util.*
 
@@ -10,23 +10,23 @@ class DefaultPessoaService(
 ) : PessoaService {
 
     override fun salvar(pessoa: Pessoa): UUID {
-        if (!pessoa.hasNascimentoMenorQue(LocalDate.now())) {
+        if (!pessoa.hasNascimentoLessThan(LocalDate.now())) {
             throw IllegalArgumentException("A pessoa deve ter data de nascimento menor do que o data atual")
         }
-        pessoaRepository.salvar(pessoa)
+        pessoaRepository.save(pessoa)
         return pessoa.id
     }
 
     override fun buscarPorId(id: UUID): Pessoa? {
-        return pessoaRepository.buscarPorId(id)
+        return pessoaRepository.findById(id)
     }
 
     override fun listar(): List<Pessoa> {
-        return pessoaRepository.listar()
+        return pessoaRepository.findAll()
     }
 
     override fun deletarPorId(id: UUID) {
-        if (!pessoaRepository.existePorId(id)){
+        if (!pessoaRepository.existsById(id)){
             throw IllegalStateException("A pessoa que você deseja remover não existe.")
         }
         deletarPorId(id)

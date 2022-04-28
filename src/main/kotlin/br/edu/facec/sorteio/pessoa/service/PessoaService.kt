@@ -1,6 +1,6 @@
-package br.edu.facec.sorteio.domain.pessoa.service
+package br.edu.facec.sorteio.pessoa.service
 
-import br.edu.facec.sorteio.domain.pessoa.entity.Pessoa
+import br.edu.facec.sorteio.pessoa.entity.Pessoa
 import java.util.*
 
 interface PessoaService {
