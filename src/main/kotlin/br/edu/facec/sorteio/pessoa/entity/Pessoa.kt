@@ -33,21 +33,4 @@ class Pessoa constructor(
         return nascimento != null && nascimento!!.isBefore(data)
     }
 
-//    companion object {
-
-//        operator fun invoke(id: UUID, nome: String, telefone: String, email: String): Pessoa {
-//          // Alternativa ao init {}
-
-//            if (nome.isBlank()) {
-//                throw IllegalArgumentException("Nome da pessoa deve ser informado.")
-//            }
-//            if (telefone.isBlank()) {
-//                throw IllegalArgumentException("Telefone da pessoa deve ser informado.")
-//            }
-//            if (email.isBlank()) {
-//                throw IllegalArgumentException("E-mail da pessoa deve ser informado.")
-//            }
-//            return Pessoa(id, nome, telefone, email)
-//        }
-//    }
 }
