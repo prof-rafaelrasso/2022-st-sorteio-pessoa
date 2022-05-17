@@ -5,13 +5,13 @@ import java.util.UUID
 
 class Pessoa constructor(
     val id: UUID,
-    private val nome: String,
-    private val telefone: String,
-    private val email: String
+    val nome: String,
+    val telefone: String,
+    val email: String
 ) {
-    private var cpf: String? = null
-    private var nascimento: LocalDate? = null
-    private var endereco: String? = null
+    var cpf: String? = null
+    var nascimento: LocalDate? = null
+    var endereco: String? = null
 
     init {
         if (nome.isBlank()) {

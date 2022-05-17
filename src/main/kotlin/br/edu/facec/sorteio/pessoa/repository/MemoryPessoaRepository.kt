@@ -7,6 +7,15 @@ class MemoryPessoaRepository : PessoaRepository {
 
     private val database: MutableSet<Pessoa> = mutableSetOf()
 
+    init {
+        database.add(Pessoa(
+            id = UUID.fromString("44623d7e-f7cb-44d3-b623-979b35636970"),
+            nome = "Marcio",
+            telefone = "4499999999",
+            email = "marcio@email.com.br"
+        ))
+    }
+
     override fun save(pessoa: Pessoa) {
         database.add(pessoa)
     }

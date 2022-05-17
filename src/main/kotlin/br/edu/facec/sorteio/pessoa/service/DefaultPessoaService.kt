@@ -2,6 +2,7 @@ package br.edu.facec.sorteio.pessoa.service
 
 import br.edu.facec.sorteio.pessoa.entity.Pessoa
 import br.edu.facec.sorteio.pessoa.repository.PessoaRepository
+import jakarta.inject.Singleton
 import java.time.LocalDate
 import java.util.*
 
@@ -30,7 +31,7 @@ class DefaultPessoaService(
     }
 
     override fun deleteById(id: UUID) {
-        if (!pessoaRepository.existsById(id)){
+        if (!pessoaRepository.existsById(id)) {
             throw IllegalStateException("A pessoa que você deseja remover não existe.")
         }
         pessoaRepository.deleteById(id)
