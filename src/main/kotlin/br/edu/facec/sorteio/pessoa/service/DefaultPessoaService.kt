@@ -37,4 +37,11 @@ class DefaultPessoaService(
         pessoaRepository.deleteById(id)
     }
 
+    override fun update(id: UUID, pessoa: Pessoa) {
+        if (!pessoaRepository.existsById(id)) {
+            throw IllegalStateException("A pessoa que você deseja atualizar não existe.")
+        }
+        pessoaRepository.update(id, pessoa)
+    }
+
 }

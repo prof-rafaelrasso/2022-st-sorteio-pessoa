@@ -8,4 +8,5 @@ interface PessoaService {
     fun findById(id: UUID): Pessoa?
     fun findAll(): List<Pessoa>
     fun deleteById(id: UUID)
+    fun update(id: UUID, pessoa: Pessoa)
 }

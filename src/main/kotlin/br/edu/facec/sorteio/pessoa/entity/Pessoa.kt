@@ -4,7 +4,7 @@ import java.time.LocalDate
 import java.util.UUID
 
 class Pessoa constructor(
-    val id: UUID,
+    val id: UUID = UUID.randomUUID(),
     val nome: String,
     val telefone: String,
     val email: String
@@ -30,7 +30,7 @@ class Pessoa constructor(
     }
 
     fun hasNascimentoLessThan(data: LocalDate): Boolean {
-        return nascimento != null && nascimento!!.isBefore(data)
+        return nascimento == null || nascimento!!.isBefore(data)
     }
 
 }

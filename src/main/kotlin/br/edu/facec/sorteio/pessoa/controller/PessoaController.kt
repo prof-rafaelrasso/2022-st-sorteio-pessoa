@@ -2,30 +2,35 @@ package br.edu.facec.sorteio.pessoa.controller
 
 import br.edu.facec.sorteio.pessoa.entity.Pessoa
 import br.edu.facec.sorteio.pessoa.service.PessoaService
-import io.micronaut.http.annotation.Controller
-import io.micronaut.http.annotation.Get
-import io.micronaut.http.annotation.PathVariable
+import io.micronaut.http.annotation.*
 import jakarta.inject.Inject
 import java.util.*
 
-@Controller("/pessoas")
+@Controller
 class PessoaController(@Inject private val pessoaService: PessoaService) {
 
-    fun save(pessoa: Pessoa): UUID {
-        TODO("Not Implemented Yet")
+    @Post("/pessoas")
+    fun create(@Body pessoa: Pessoa): UUID {
+        return pessoaService.save(pessoa)
     }
 
-    @Get("/{id}")
+    @Get("/pessoas/{id}")
     fun findById(@PathVariable("id") id: UUID): Pessoa? {
         return pessoaService.findById(id)
     }
 
-    @Get
+    @Put("/pessoas/{id}")
+    fun update(@PathVariable("id") id: UUID, @Body pessoa: Pessoa) {
+        pessoaService.update(id, pessoa)
+    }
+
+    @Get("/pessoas")
     fun findAll(): List<Pessoa> {
         return pessoaService.findAll()
     }
 
+    @Delete("/pessoas/{id}")
     fun deleteById(id: UUID) {
-        TODO("Not Implemented Yet")
+        return pessoaService.deleteById(id)
     }
 }
