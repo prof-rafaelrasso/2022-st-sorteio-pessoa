@@ -45,4 +45,5 @@ ai você pode parar a aplicação e rodar novamente através desta opção.
 Nota.: Rodando usando os recursos da IDE realmente fica mais fácil lembrar o que deve executar e afins, mas é imporante
 criar o hábito de executar a aplicação da forma mais próxima que ela será executada em ambiente de produção para mitigar erros.
 As IDEs fazem magia as vezes, coisas que não acontecem no ambiente produtivo. Sabendo disso, a opção por terminal é a que 
-mais se aproxima do ambiente produtivo. 
+mais se aproxima do ambiente produtivo.
+

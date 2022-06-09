@@ -3,6 +3,7 @@ package br.edu.facec.sorteio.pessoa.repository
 import br.edu.facec.sorteio.pessoa.entity.Pessoa
 import com.mongodb.client.MongoClient
 import com.mongodb.client.MongoCollection
+import com.mongodb.client.model.Filters
 import java.util.*
 
 class MongoPessoaRepository(private val mongoClient: MongoClient): PessoaRepository {
@@ -15,22 +16,22 @@ class MongoPessoaRepository(private val mongoClient: MongoClient): PessoaReposit
     }
 
     override fun existsById(id: UUID): Boolean {
-        TODO("Not yet implemented")
+        return pessoaCollection.countDocuments(Filters.eq("_id", id)) > 0
     }
 
     override fun findById(id: UUID): Pessoa? {
-        TODO("Not yet implemented")
+        return pessoaCollection.find(Filters.eq("_id", id)).first()
     }
 
     override fun findAll(): List<Pessoa> {
-        TODO("Not yet implemented")
+        return pessoaCollection.find().toList()
     }
 
     override fun deleteById(id: UUID) {
-        TODO("Not yet implemented")
+        pessoaCollection.deleteOne(Filters.eq("_id", id))
     }
 
     override fun update(id: UUID, pessoa: Pessoa) {
-        TODO("Not yet implemented")
+        pessoaCollection.replaceOne(Filters.eq("_id", id), pessoa)
     }
 }
