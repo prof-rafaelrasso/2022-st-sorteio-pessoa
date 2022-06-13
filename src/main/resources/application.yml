@@ -1,5 +1,5 @@
 micronaut:
   application:
     name: sorteio-pessoa-api
-mongodb.uri: mongodb+srv://admin:wmgbAfIN0LiiIHUC@sis-sorteio.5ctt9.mongodb.net/sis-sorteio?retryWrites=true&w=majority&uuidRepresentation=standard
+mongodb.uri: mongodb+srv://<user>:<senha>@<host>/sis-sorteio?retryWrites=true&w=majority&uuidRepresentation=standard
 
